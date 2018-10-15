@@ -48,60 +48,59 @@ WIDGET_CONTROL, /hourglass
       distance5 = sqrt((x - circle5[0])^2 + (y - circle5[1])^2)+.5
       distance6 = sqrt((x - circle6[0])^2 + (y - circle6[1])^2)+.5
       
+
+ Here we are giving spin information to the conduction band 
+
+      matrix1[x,y]=[1]
+      if y-circle0[0] LE 0 then matrix2[x,y] = ACOS((x-circle0[0])/distance0) + !pi/2.
+      if y-circle0[0] GT 0 then matrix2[x,y] = (5.*!pi)/2. - ACOS((x-circle0[0])/distance0)
+      matrix6[x,y] = [1.]
+      if y-circle0[0] LE 0 then matrix7[x,y] = ACOS((x-circle0[0])/distance0) + !pi*3./2.
+      if y-circle0[0] GT 0 then matrix7[x,y] = (7.*!pi)/2. - ACOS((x-circle0[0])/distance0)
       
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Here we are giving spin information to the conduction band 
+      
+ Finishing edits for hexagonal CB
+ 
+      If distance1 LT ((SQRT(3)-0.25)*r) then begin 
+      matrix1[x,y]= 0.
+      matrix2[x,y]= 0. 
+      matrix6[x,y]= 0.  
+      matrix7[x,y]= 0. 
+      endif
+      If distance2 LT ((SQRT(3)-0.25)*r) then begin 
+      matrix1[x,y]= 0.
+      matrix2[x,y]= 0. 
+      matrix6[x,y]= 0.  
+      matrix7[x,y]= 0. 
+      endif
+      If distance3 LT ((SQRT(3)-0.25)*r) then begin 
+      matrix1[x,y]= 0.
+      matrix2[x,y]= 0. 
+      matrix6[x,y]= 0.  
+     matrix7[x,y]= 0. 
+      endif
+      If distance4 LT ((SQRT(3)-0.25)*r) then begin 
+      matrix1[x,y]= 0.
+      matrix2[x,y]= 0. 
+      matrix6[x,y]= 0.  
+     matrix7[x,y]= 0. 
+      endif
+      If distance5 LT ((SQRT(3)-0.25)*r) then begin 
+      matrix1[x,y]= 0.  
+      matrix2[x,y]= 0. 
+      matrix6[x,y]= 0.  
+      matrix7[x,y]= 0. 
+     endif
+      If distance6 LT ((SQRT(3)-0.25)*r) then begin 
+     matrix1[x,y]= 0. 
+      matrix2[x,y]= 0.
+      matrix6[x,y]= 0. 
+      matrix7[x,y]= 0.
+      endif
+      
+      ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;      matrix1[x,y]=[1]
-;      if y-circle0[0] LE 0 then matrix2[x,y] = ACOS((x-circle0[0])/distance0) + !pi/2.
-;      if y-circle0[0] GT 0 then matrix2[x,y] = (5.*!pi)/2. - ACOS((x-circle0[0])/distance0)
-;      matrix6[x,y] = [1.]
-;      if y-circle0[0] LE 0 then matrix7[x,y] = ACOS((x-circle0[0])/distance0) + !pi*3./2.
-;      if y-circle0[0] GT 0 then matrix7[x,y] = (7.*!pi)/2. - ACOS((x-circle0[0])/distance0)
-;      
-;      
-; Finishing edits for hexagonal CB
-; 
-;      If distance1 LT ((SQRT(3)-0.25)*r) then begin 
-;      matrix1[x,y]= 0.
-;      matrix2[x,y]= 0. 
-;      matrix6[x,y]= 0.  
-;      matrix7[x,y]= 0. 
-;      endif
-;      If distance2 LT ((SQRT(3)-0.25)*r) then begin 
-;      matrix1[x,y]= 0.
-;      matrix2[x,y]= 0. 
-;      matrix6[x,y]= 0.  
-;      matrix7[x,y]= 0. 
-;      endif
-;      If distance3 LT ((SQRT(3)-0.25)*r) then begin 
-;      matrix1[x,y]= 0.
-;      matrix2[x,y]= 0. 
-;      matrix6[x,y]= 0.  
-;      matrix7[x,y]= 0. 
-;      endif
-;      If distance4 LT ((SQRT(3)-0.25)*r) then begin 
-;      matrix1[x,y]= 0.
-;      matrix2[x,y]= 0. 
-;      matrix6[x,y]= 0.  
-;      matrix7[x,y]= 0. 
-;      endif
-;      If distance5 LT ((SQRT(3)-0.25)*r) then begin 
-;      matrix1[x,y]= 0.  
-;      matrix2[x,y]= 0. 
-;      matrix6[x,y]= 0.  
-;      matrix7[x,y]= 0. 
-;      endif
-;      If distance6 LT ((SQRT(3)-0.25)*r) then begin 
-;      matrix1[x,y]= 0. 
-;      matrix2[x,y]= 0.
-;      matrix6[x,y]= 0. 
-;      matrix7[x,y]= 0.
-;      endif
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-  ; Creation of 6 circles for the Hexagon
+Creation of 6 circles for the Hexagon
        
        IF distance1 GT (r-0.5) and distance1 LT (r+0.5) THEN BEGIN
          x1 = x - circle1[0]
