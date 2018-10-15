@@ -3,38 +3,40 @@ This code is in the language IDL.
 Results in making a 2D map of pixels of intensity 0-1 representing the equivalent probability of quasiparticle scaterring at that specific energy frequence in K and Q-space for topological insulator Bi2Ti3.
 
 
-PRO layerobj::circle2
+    PRO layerobj::circle2
 
-WIDGET_CONTROL, /hourglass
+    WIDGET_CONTROL, /hourglass
 
-  side = 100
-  r = side/6
-  center = side/2 - 1.
+    side = 100
+    r = side/6
+    center = side/2 - 1.
 
-    Creating the 7 layered Array
-  object1 = MAKE_ARRAY(side,side,7, Value = .0)
-  matrix1 = object1[*,*,0]
-  matrix2 = object1[*,*,1]
-  matrix3 = object1[*,*,2]
-  matrix4 = object1[*,*,3]
-  matrix5 = object1[*,*,4]
-  matrix6 = object1[*,*,5]
-  matrix7 = object1[*,*,6]
+  Creating the 7 layered Array
+ 
+    object1 = MAKE_ARRAY(side,side,7, Value = .0)
+    matrix1 = object1[*,*,0]
+    matrix2 = object1[*,*,1]
+    matrix3 = object1[*,*,2]
+    matrix4 = object1[*,*,3]
+    matrix5 = object1[*,*,4]
+    matrix6 = object1[*,*,5]
+    matrix7 = object1[*,*,6]
 
 Determining the location of key point of the plane
-  circle0 = [center,center]
-  circle1 = [center,center-r*sqrt(3)]
-  circle2 = [center+(cos(!pi/6.)*sqrt(3)*r),center-(sin(!pi/6.)*sqrt(3)*r)]
-  circle3 = [center+(cos(!pi*11./6)*sqrt(3)*r),center-(sin(!pi*11./6)*sqrt(3)*r)]
-  circle4 = [center,center+r*sqrt(3)]
-  circle5 = [center+cos(!pi*7./6.)*sqrt(3)*r,center-(sin(!pi*7./6.)*sqrt(3)*r)]
-  circle6 = [center+cos(!pi*5./6.)*sqrt(3)*r,center-(sin(!pi*5./6.)*sqrt(3)*r)]
-  circle7 = [center-cos(!pi/3.)*2*r,center-r*sqrt(3)]
-  circle8 = [center+cos(!pi/3.)*2*r,center-r*sqrt(3)]
-  circle9 = [center-cos(!pi/3.)*2*r,center+r*sqrt(3)]
-  circle10 = [center+cos(!pi/3.)*2*r,center+r*sqrt(3)]
-  circle11 = [center-2*r,center]
-  circle12 = [center+2*r,center]
+  
+    circle0 = [center,center]
+    circle1 = [center,center-r*sqrt(3)]
+    circle2 = [center+(cos(!pi/6.)*sqrt(3)*r),center-(sin(!pi/6.)*sqrt(3)*r)]
+    circle3 = [center+(cos(!pi*11./6)*sqrt(3)*r),center-(sin(!pi*11./6)*sqrt(3)*r)]
+    circle4 = [center,center+r*sqrt(3)]
+    circle5 = [center+cos(!pi*7./6.)*sqrt(3)*r,center-(sin(!pi*7./6.)*sqrt(3)*r)]
+    circle6 = [center+cos(!pi*5./6.)*sqrt(3)*r,center-(sin(!pi*5./6.)*sqrt(3)*r)]
+    circle7 = [center-cos(!pi/3.)*2*r,center-r*sqrt(3)]
+    circle8 = [center+cos(!pi/3.)*2*r,center-r*sqrt(3)]
+    circle9 = [center-cos(!pi/3.)*2*r,center+r*sqrt(3)]
+    circle10 = [center+cos(!pi/3.)*2*r,center+r*sqrt(3)]
+    circle11 = [center-2*r,center]
+    circle12 = [center+2*r,center]
 
   
     FOR x = 0., (side - 1.) DO BEGIN
