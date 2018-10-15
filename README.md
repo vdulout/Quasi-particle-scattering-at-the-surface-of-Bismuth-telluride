@@ -11,7 +11,7 @@ WIDGET_CONTROL, /hourglass
   r = side/6
   center = side/2 - 1.
 
-; Creating the 7 layered Array
+    Creating the 7 layered Array
   object1 = MAKE_ARRAY(side,side,7, Value = .0)
   matrix1 = object1[*,*,0]
   matrix2 = object1[*,*,1]
@@ -21,7 +21,7 @@ WIDGET_CONTROL, /hourglass
   matrix6 = object1[*,*,5]
   matrix7 = object1[*,*,6]
 
- ; Determining the location of key point of the plane
+Determining the location of key point of the plane
   circle0 = [center,center]
   circle1 = [center,center-r*sqrt(3)]
   circle2 = [center+(cos(!pi/6.)*sqrt(3)*r),center-(sin(!pi/6.)*sqrt(3)*r)]
