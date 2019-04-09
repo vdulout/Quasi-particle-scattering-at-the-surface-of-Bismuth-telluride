@@ -1,4 +1,7 @@
 # Quasi-particle-scattering-at-the-surface-of-Bismuth-telluride
+
+Link to the paper: https://docs.google.com/document/d/19bjDA6b0_IJD-IYGCKmOchEsIF6nk47TlPqtKcyScac/edit?usp=sharing
+
 This code is in the language IDL.
 Results in making a 2D map of pixels of intensity 0-1 representing the equivalent probability of quasiparticle scaterring at that specific energy frequence in K and Q-space for topological insulator Bi2Ti3.
 
